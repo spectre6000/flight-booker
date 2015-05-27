@@ -1,8 +1,7 @@
-<%= form_tag flights_path, method: 'get' do %>
-  <%= select(:post, :origin_id, options_for_select(@airports)) %>
-  <%= select(:post, :destination_id, options_for_select(@airports)) %>
-  <%= select(:post, :passengers, options_for_select(@passengers)) %>
-  <%= select(:post, :date, options_for_select(@dates)) %>
-  <%= submit_tag "Search" %>
-<% end %>
+<% provide(:title, 'Search Flights') %>
 
+<%= render 'search' %>
+
+<% if @flights %>
+  <%= render 'search_results' %>
+<% end %>

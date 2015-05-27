@@ -1,0 +1,14 @@
+Results
+
+
+  <% @flights.each do |flight| %>
+    </br>
+    <%= radio_button_tag :flight_id, flight.id %>
+    <%= flight.id %>
+    <%= flight.date.strftime("%m/%d/%Y")  %>
+    <%= flight.origin.code %>
+    <%= flight.destination.code %>
+    <%= distance_of_time_in_words(flight.duration * 60 * 60) %>
+  <% end %>
+  <%= submit_tag "Book it!", :name => nil %>
+  <%= hidden_field_tag :passengers, params[:passengers] %>
