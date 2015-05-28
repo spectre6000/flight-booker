@@ -1,6 +1,6 @@
 Results
 
-
+<%= form_tag new_booking_path, method: 'get' do %>
   <% @flights.each do |flight| %>
     </br>
     <%= radio_button_tag :flight_id, flight.id %>
@@ -12,3 +12,4 @@ Results
   <% end %>
   <%= submit_tag "Book it!", :name => nil %>
   <%= hidden_field_tag :passengers, params[:passengers] %>
+<% end %>

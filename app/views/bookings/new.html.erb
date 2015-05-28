@@ -1,0 +1,15 @@
+<% provide(:title, 'New Booking') %>
+
+<p>flight #<%= @flight.id %></p>
+<p><%= @flight.origin.code %> to <%= @flight.destination.code %></p>
+<p>date: <%= @flight.date %>
+
+<%= form_for @booking do |f| %>
+  <%= f.hidden_field :flight_id %>
+  <%= f.fields_for :passengers do |p| %>
+  <p> passenger information </p>
+    Name: <%= p.text_field :name %>
+    Email: <%= p.text_field :email %>
+    <% end %>
+  <%= f.submit "Book flight" %>
+<% end %>
