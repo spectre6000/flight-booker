@@ -1,0 +1,12 @@
+<% provide(:title, 'New Booking') %>
+
+<p>Confirmation</p>
+
+<p>Flight #<%= @booking.flight.id %></p>
+<p><%= @booking.flight.origin.code %> to <%= @booking.flight.destination.code %></p>
+<p>date: <%= @booking.flight.date %>
+
+<% @booking.passengers.each do |x| %>
+  <p>Name: <%= x.name %></p>
+  <p>Email: <%= x.email %></p>
+<% end %>
